@@ -1,0 +1,15 @@
+<div class="col-md-12 timeline-nav">
+	<div class="timeline-title-wrap">
+		<div class="timeline-title"><span>Timeline</span></div>
+	</div>
+	<div class="timeline-wrap">
+		<div class="timeline-items scroll-pane"></div>
+	</div>
+	<div class="timeline-footer">
+		<span class="glyphicon glyphicon-zoom-out zoom-control" ng-click="zoomAdd(1)"></span>
+		<div class="size_wrap">
+			<input type="text" ng-value="{{zoom}}" ng-model="zoom">
+		</div>
+		<span class="glyphicon glyphicon-zoom-in zoom-control" ng-click="zoomAdd(-1)"></span>
+	</div>
+</div>

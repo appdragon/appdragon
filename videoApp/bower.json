@@ -1,0 +1,32 @@
+{
+  "name": "videoApp",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.9",
+    "fabric.js": "fabric#~1.5.0",
+    "angular-xeditable": "^0.1.9",
+    "angular-route": "^1.5.0",
+    "angular-mocks": "^1.5.0",
+    "jquery-ui": "^1.11.4",
+    "blueimp-file-upload": "jquery-file-upload#^9.12.1",
+    "angular-sanitize": "^1.5.0",
+    "angular-bootstrap": "^1.2.4",
+    "ng-tags-input": "^3.0.0"
+  },
+  "overrides": {
+    "jquery": {
+      "main": []
+    }
+  }
+}

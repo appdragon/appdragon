@@ -1,0 +1,50 @@
+<div class="popover_budget" style="display:inline-block; max-width: 260px;">
+    <div class="col-md-12">
+    	<label class="inline-label">
+			<input type="radio" value="budget_fixed" name="budget-mode" ng-model="budget.budget_type">
+			<span>Fixed price</span>
+		</label>
+		<div class="alert alert-danger" role="alert" ng-if="budget.budget_type == 'budget_fixed' && budget.budget_fixed <= 0">Price range is invalid!</div>
+		<div class="input-group" ng-if="budget.budget_type == 'budget_fixed'">
+			<span class="input-group-addon">$</span>
+			<input class="form-control can-toggle" name="budget_fixed" type="input" ng-model="budget.budget_fixed">
+		</div>
+    </div>
+    <div class="col-md-12">
+    	<label class="inline-label">
+			<input type="radio" value="budget_range" name="budget-mode" class="" ng-model="budget.budget_type">
+			<span>Price range</span>
+		</label>
+		<div class="alert alert-danger" role="alert" ng-if="budget.budget_type == 'budget_range' && budget.budget_min > budget.budget_max">Price range is invalid!</div>
+		<div class="input-group" ng-if="budget.budget_type == 'budget_range'">
+			<span class="input-group-addon">$</span>
+			<input 
+				class="form-control can-toggle" 
+				name="budget_fixed" 
+				type="input" 
+				ng-model="budget.budget_min"
+				ng-class="{'not-valid': budget.budget_min > budget.budget_max }"
+			/>
+		</div>
+		<div class="input-group" ng-if="budget.budget_type == 'budget_range'">
+			<span class="input-group-addon">$</span>
+			<input 
+				class="form-control can-toggle" 
+				name="budget_fixed" 
+				type="input" 
+				ng-model="budget.budget_max"
+				ng-class="{'not-valid': budget.budget_min > budget.budget_max }"
+			/>
+		</div>
+    </div>
+    <div class="col-md-12">
+    	<label class="inline-label">
+			<input type="radio" value="budget_bid" name="budget-mode" class="" ng-model="budget.budget_type">
+			<span>Allow bid</span>
+		</label>
+    </div>
+
+	<button class="btn btn-link" ng-click="closeBudgetPopover()">
+		<img src="AngularApp/images/video-project/okay.png">
+	</button>
+</div>

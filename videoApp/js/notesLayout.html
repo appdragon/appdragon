@@ -1,0 +1,58 @@
+<div ng-show="videos.length">
+	<titlecontrols
+		tc-video-num="video_num"
+		tc-videos="videos"
+		tc-on-prev="prevVideo()"
+		tc-on-next="nextVideo()"
+	></titlecontrols>
+
+	<div class="video-snap-library">
+		<videosnap
+			vs-video="videos[video_num - 1].video_src"
+			vs-duration="currentDuration"
+			vs-time="currentVideoTime"
+			vs-on-snap="snapScreen(time, img, thumb)"
+			vs-on-time-update="upTime(time)"
+			vs-master="videoIsMaster"
+			vs-saveresume="videoSnapResume"
+			vs-video-type="videos[video_num - 1].video_type"
+		></videosnap>
+
+		<screenlibrary
+			sl-data="videos[video_num - 1].screen_data"
+			sl-time="currentVideoTime"
+			sl-on-select="screenSelected(item)"
+			sl-edited-item="editedItem"
+			sl-show-item="showItem"
+			sl-on-send="sendScreenToEmail(item)"
+			sl-video-type="videos[video_num - 1].video_type"
+		></screenlibrary>
+	</div>
+
+	<timeline
+		tl-data="videos[video_num - 1].screen_data"
+		tl-time="currentTimelineTime"
+		tl-duration="currentDuration"
+		tl-on-select="screenSelected(img)"
+		tl-on-more="screenSelected(item, img)"
+		ng-if="videos[video_num - 1].video_type"
+	></timeline>
+
+	<appcontrols
+		ac-on-send="sendAllScreenToEmail()"
+		ac-on-remove="removeAll()"
+	></appcontrols>
+
+	<screeneditor
+		se-item="editedItem"
+		se-items="videos[video_num - 1].screen_data"
+		se-saveresume="videoSnapResume"
+		se-video-type="videos[video_num - 1].video_type"
+	></screeneditor>
+
+	<screenview
+		sv-item="showItem"
+		sv-edit-item="editedItem"
+		sv-items="videos[video_num - 1].screen_data"
+	></screenview>
+</div>

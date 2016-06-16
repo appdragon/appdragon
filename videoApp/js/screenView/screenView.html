@@ -1,0 +1,42 @@
+<!-- Modal -->
+<div class="modal fade screen-modal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-body">
+				<img ng-src="{{showItem.img}}">
+			</div>
+			<div class="modal-footer">
+				<div class="screen-text">
+					<div class="static-text">{{showItem.descr || 'No audio note attached'}}</div>
+				</div>
+				<div class="screen-bar">
+					<div class="screen-left-bar">
+						<button
+							type="button"
+							class="btn screen-prev"
+							ng-click="onPrev()"
+							ng-disabled="showItem.num == 1"
+						><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						</button>
+
+						<button
+							type="button"
+							class="btn screen-next"
+							ng-click="onNext()"
+							ng-disabled="showItem.num == allItems.length"
+						><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						</button>
+
+						<div class="screen-info">
+							<span>{{showItem.num}}/{{allItems.length}}</span>|<span>{{showItem.title}}</span>
+						</div>
+					</div>
+					<div class="screen-right-bar">
+						<button type="button" class="btn screen-add-notes" ng-click="onAddNotes()">Add Notes</button>
+						<button type="button" class="btn screen-close" data-dismiss="modal">x</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

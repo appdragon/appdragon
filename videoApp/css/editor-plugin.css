@@ -1,0 +1,104 @@
+/* plugin CSS */
+.editor-toolbar{
+	background: #555;
+}
+.editor-btn{
+	padding: 4px 0 0 0;
+	background: #555;
+	min-width: 45px;
+	border: none;
+	outline: 0;
+	vertical-align: middle;
+}
+.editor-btn span{
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	background-size: 28px 28px;
+}
+.editor-btn.active{
+	background: #333;
+}
+
+.undo-icon{
+	background-image: url(../images/Edit-Icons/Undo_disabled.png);
+}
+.enable .undo-icon{
+	background-image: url(../images/Edit-Icons/Undo.png);
+}
+.redo-icon{
+	background-image: url(../images/Edit-Icons/Redo_disabled.png);
+}
+.enable .redo-icon{
+	background-image: url(../images/Edit-Icons/Redo.png);
+}
+.rect-icon{
+	background-image: url(../images/Edit-Icons/Rectangle.png);
+}
+.enable .rect-icon{
+	background-image: url(../images/Edit-Icons/Rectangle-pressed.png);
+}
+.ellipse-icon{
+	background-image: url(../images/Edit-Icons/Ellipse.png);
+}
+.enable .ellipse-icon{
+	background-image: url(../images/Edit-Icons/Ellipse-pressed.png);
+}
+.line-icon{
+	background-image: url(../images/Edit-Icons/line.png);
+}
+.enable .line-icon{
+	background-image: url(../images/Edit-Icons/line_pressed.png);
+}
+.brush-icon{
+	background-image: url(../images/Edit-Icons/Brush.png);
+}
+.enable .brush-icon{
+	background-image: url(../images/Edit-Icons/Brush-pressed.png);
+}
+span.text-icon{
+	background-image: url(../images/Edit-Icons/aa.png);
+	background-size: 32px 28px;
+	width: 32px;
+}
+.enable .text-icon{
+	background-image: url(../images/Edit-Icons/aa-pressed.png);
+}
+.lineArrow-icon{
+	background-image: url(../images/Edit-Icons/kosa.png);
+}
+.enable .lineArrow-icon{
+	background-image: url(../images/Edit-Icons/kosa_pressed.png);
+}
+span.lineArrowText-icon{
+	background-image: url(../images/Edit-Icons/aaarow.png);
+	background-size: 38px 28px;
+	width: 38px;
+}
+.enable .lineArrowText-icon{
+	background-image: url(../images/Edit-Icons/aaarow-pressed.png);
+}
+
+.size_wrap{
+	display: inline-block;
+	padding-left: 5px;
+}
+.size_wrap .slider{
+	width: 130px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.size_wrap .slider .dragger{
+	border-radius: 0;
+	margin-top: -12px;
+	width: 10px;
+	height: 24px;
+}
+.size_wrap .set-size{
+	font-size: 18px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.size_wrap .set-size:hover{
+	color: #fff;
+}

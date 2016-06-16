@@ -1,0 +1,36 @@
+<div class="video-header">
+	<div class="header-line hidden-xs"></div>
+	<div class="video-slider">
+		<div class="video-button button-prev" ng-click="onPrev()" ng-if="videoNum > 1">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<div class="button-right hidden-xs hidden-sm">
+				<div>Previous</div>
+				<div>File</div>
+			</div>
+		</div>
+		<div class="header-title">
+			<div class="number">{{videoNum}}</div>
+			<h1>
+				<span editable-text="videoObj.title" e-form="textBtnForm" e-style="width: 100%;" onaftersave="editTitle()">{{videoObj.title}}</span>
+				<div class="edit" ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible"></div>
+			</h1>
+			<div class="title-descr">
+				<span 
+					editable-textarea="videoObj.descr"
+					e-form="textAreaBtnForm"
+					e-style="width: 100%;"
+					onaftersave="editDescr()"
+				>{{videoObj.descr || 'some description...'}}</span>
+				<div class="edit" ng-click="textAreaBtnForm.$show()" ng-hide="textAreaBtnForm.$visible"></div>
+			</div>
+		</div>
+		<div class="video-button button-next" ng-click="onNext()" ng-if="videoNum < videos.length">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<div class="button-right hidden-xs hidden-sm">
+				<div>Next</div>
+				<div>File</div>
+			</div>
+		</div>
+	</div>
+	<div class="header-line"></div>
+</div> <!-- END video header -->

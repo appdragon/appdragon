@@ -1,0 +1,495 @@
+<div class="one-project">
+    <div class="project-title">
+        <span
+			editable-text="project.project_title" 
+			e-form="textBtnFormProjectTitle" 
+			e-style="width: 100%;" 
+			onaftersave="editProjectData({ title: project.project_title })"
+		>{{project.project_title}}</span>
+		<img 
+			class="video-edit" 
+			ng-click="textBtnFormProjectTitle.$show()" 
+			ng-hide="textBtnFormProjectTitle.$visible" 
+			src="AngularApp/images/video-project/icon-edit.png" 
+			alt="edit" 
+			popover-title="Edit Project Title"
+		/>
+    </div>
+
+    <div class="wizard-holder">
+    	<div class="bs-wizard">
+	    	<div>
+	    		<div class="col-xs-4 bs-wizard-step active">
+	            	<div class="text-center bs-wizard-stepnum">
+	                    <i class="fa fa-upload"></i>
+	                    <br>
+	               	 	Upload / link media
+	            	</div>
+
+	            	<div class="progress">
+	                	<div class="progress-bar"><!-- --></div>
+	            	</div>
+
+	            	<a class="bs-wizard-dot"></a>
+	        	</div>
+
+	            <div class="col-xs-4 bs-wizard-step">
+	            	<div class="text-center bs-wizard-stepnum">
+	                    <i class="fa fa-magic"></i>
+	                    <br>
+	                	Add video notes
+	            	</div>
+
+	            	<div class="progress">
+	                	<div class="progress-bar"><!-- --></div>
+	            	</div>
+
+	            	<a class="bs-wizard-dot"></a>
+	        	</div>
+	            <div class="col-xs-4 bs-wizard-step">
+	            	<div class="text-center bs-wizard-stepnum">
+	                    <i class="fa fa-paper-plane"></i>
+	                    <br>
+	                	Submit to video editor
+	            	</div>
+
+	            	<div class="progress">
+	                	<div class="progress-bar"><!-- --></div>
+	            	</div>
+
+	            	<a class="bs-wizard-dot"></a>
+	        	</div>
+	    	</div>
+           <div class="clearfix"></div>
+    	</div>
+    	
+    </div>
+
+
+    <div class="notice-block notice-info">
+        <p>Add the videos and photos you'd like to be in your final video output by clicking on these buttons:</p>
+        <!-- <span class="hide"><b>Choose Files From Media Library:</b> Links your existing DropBox account (if you have one)</span> -->
+        <p><span class="bold">Upload From My Computer:</span> Add your video and photo files to an online storage account</p>
+        <p>Once you have added videos and photos create accurate storyboards and instructions for the Video Editor by clicking on <span class="bold">ADD NOTES</span></p>
+        <p>For more information, visit the <a href="/pages/faq" target="_blank"><span class="bold">FAQ</span></a> page.</p>
+   	</div>
+
+   	<div class="row">
+		<div class="col-sm-7 info-block">
+	        <div class="info-block-content">
+
+	        	<div class="info-row">
+	        		<label>Category:</label>
+	        		<span
+	        			editable-select="project.project_category.id"
+	        			e-ng-options="cat.id as cat.name for cat in categories"
+	        			e-form="selectFormProjectCategory"
+	        			onaftersave="editProjectData({ category: project.project_category.id })"
+	        		>
+	        			{{ project.project_category.name }}
+	        		</span>
+	        		<img 
+	        			class="video-edit" 
+	        			src="AngularApp/images/video-project/icon-edit.png"
+	        			ng-click="selectFormProjectCategory.$show()" 
+						ng-hide="selectFormProjectCategory.$visible" 
+	        		/>
+	        	</div>
+
+
+	            <div class="info-row">
+	                <label>Description:</label>
+	                <div>
+	                	<div class="pull-right">
+		                    <img
+		                    	class="video-edit" src="AngularApp/images/video-project/icon-edit.png"
+		                    	ng-click="textareaFormProjectDescription.$show()" 
+								ng-hide="textareaFormProjectDescription.$visible" 
+		                    />
+		                </div>
+	                	<div 
+	                		ng-bind-html="project.project_description"
+	                		editable-textarea="project.project_description"
+	                		e-form="textareaFormProjectDescription"
+	                		e-style="width: 100%;"
+	                		onaftersave="editProjectData({ description: project.project_description })"
+	                	></div>
+	                </div>
+	            </div>
+
+	            <div class="info-row">
+	                <label>Project Start Date:</label>
+	                <span>{{project.project_post_date.iso | date:'MMM d, yyyy'}}</span>
+	            </div>
+
+	            <div class="info-row">
+	                <label>Project Deadline:</label>
+	                <span>{{ project.project_due_date.iso | date:'MMM d, yyyy' }}</span>
+	                <img 
+	                	class="video-edit"
+	                	src="AngularApp/images/video-project/icon-edit.png"
+	                	uib-popover-template="'/videoApp/js/datePicker.html'"
+	                	popover-title="Deadline"
+	                	popover-is-open="project_due_date_popover"
+	                />
+	            </div>
+
+	            <div class="info-row">
+	                <label>Budget:</label>
+	                <span>{{ project.project_budget.formatted || project.project_budget.name }}</span>
+	                <img 
+	                	class="video-edit" 
+	                	src="AngularApp/images/video-project/icon-edit.png"
+	                	uib-popover-template="'/videoApp/js/budgetPopover.html'"
+	                	popover-title="Budget"
+	                	popover-is-open="project_budget_popover"
+	                	popover-trigger="outsideClick"
+	                />
+	            </div>
+
+	            <!-- <div class="info-row">
+	                <label>Tags:</label>
+
+	                <div>
+	                    <span ng-repeat="tag in project_tags">{{tag.text}}&nbsp;</span>
+	                    
+	                    <img 
+	                    	class="video-edit" 
+	                    	src="AngularApp/images/video-project/icon-edit.png"
+	                    	uib-popover-template="'/videoApp/js/tagsPopover.html'"
+	                		popover-title="Tags"
+	                		popover-is-open="project_tags_popover"
+	                		popover-trigger="outsideClick"
+	                    />
+	                </div>
+	            </div> -->
+	        </div>
+	    </div>
+
+	    <div class="col-sm-5 info-block">
+	        <div class="info-block-content">
+	           	<div class="info-row">
+	                <label>Video Duration:</label>
+	                <span
+	                	editable-select="project.project_video_duration.id"
+	        			e-ng-options="dur.id as dur.name for dur in videoDur"
+	        			e-form="selectFormProjectDur"
+	        			onaftersave="editProjectData({ video_duration: project.project_video_duration.id })"
+	                >{{ project.project_video_duration.title }}</span>
+	                <img 
+	                	class="video-edit"
+	                	src="AngularApp/images/video-project/icon-edit.png"
+	                	ng-click="selectFormProjectDur.$show()"
+						ng-hide="selectFormProjectDur.$visible"
+	                />
+	        	</div>
+	            <div class="info-row">
+	                <label>Audio Track:</label>
+	                <div class="pull-right">
+	                	<img 
+	                		class="video-edit"
+	                		src="AngularApp/images/video-project/icon-edit.png"
+	                		uib-popover-template="'/videoApp/js/audioPopover.html'"
+	                		popover-title="Edit Audio Genre"
+	                		popover-is-open="project_audio_popover"
+	                		popover-trigger="outsideClick"
+	                	/>
+	                </div>
+	                <div>
+	                    <span>{{project.project_audio_genre.formatted}}&nbsp;</span>
+	                    <span>{{project.project_audio_subgenre.formatted}}&nbsp;</span>
+	                 </div>
+	                
+	            </div>
+	            <div class="info-row">
+	                <label>Naration Required:</label>
+	                <span
+	                	editable-select="project.project_naration.raw"
+	        			e-ng-options="sw.id as sw.name for sw in binarySwitch"
+	        			e-form="selectFormProjectNar"
+	        			onaftersave="editProjectData({ narration_required: project.project_naration.raw })"
+	                >{{ project.project_naration.raw == 1 ? 'Yes' : 'No' }}</span>
+	                <img 
+	                	class="video-edit"
+	                	src="AngularApp/images/video-project/icon-edit.png"
+	                	ng-click="selectFormProjectNar.$show()"
+						ng-hide="selectFormProjectNar.$visible"
+	                />
+	            </div>
+	            <div class="info-row">
+	                <label>Subtitles Requried:</label>
+	                <span
+	                	editable-select="project.project_subtitles.raw"
+	        			e-ng-options="sw.id as sw.name for sw in binarySwitch"
+	        			e-form="selectFormProjectSub"
+	        			onaftersave="editProjectData({ subtitles_required: project.project_subtitles.raw })"
+	                >{{ project.project_subtitles.raw == 1 ? 'Yes' : 'No' }}</span>
+	                <img 
+	                	class="video-edit" 
+	                	src="AngularApp/images/video-project/icon-edit.png"
+	                	ng-click="selectFormProjectSub.$show()"
+						ng-hide="selectFormProjectSub.$visible"
+	                />
+	            </div>
+	        </div>
+
+	        <div class="description-block">
+	            <div class="header-color-track">
+	                <img src="AngularApp/images/video-project/blue-silver.jpg">
+	            </div>
+	            <div class="block-content">
+	            	<div class="title-director text-right">
+		                <span>Director</span>
+		            </div>
+		            <div class="applicants-info">
+		                <h5>{{project.applicants}} applicants</h5>
+		            </div>
+	            </div>
+	        </div>
+	    </div>
+   	</div>
+   
+
+    <div>
+        <div class="video-upload">
+
+	        <div class="browse-wrap file-uploader" ng-click="uploadFile()">
+
+	        	<div class="title">
+
+	                <img src="AngularApp/images/video-project/upload-icon.png">
+
+	                Upload from
+	                <br>
+	                My computer
+
+	            </div>
+
+	        </div>
+
+	        <span class="fileinput-button" style="display:none">
+
+	            <input id="fileupload" type="file" name="files[]" multiple="" class="">
+
+	        </span>
+
+	        <div>
+	            <div id="status"><i style="display: none;">Compressing</i></div>
+
+	            <!-- The global progress bar -->
+	            <div id="progress" class="progress" style="display:none">
+	                <div class="progress-bar"></div>
+	            </div>
+
+	             <!-- The container for the uploaded files -->
+	            <div id="files" class="files"></div>
+	        </div>
+
+	        <div>
+	        	<div class="video-upload-info">
+
+	                <p>
+	                  Upload your own files or add your finished work to Project Files for review.
+	                </p>
+
+	            </div>
+	        </div>
+
+	        <div class="clearfix">
+
+	            <div class="status-wrapper clearfix">
+
+	              	<!-- <p style="text-align:center">
+	                	For better upload, connect your device to your computer and upload from your computer
+	              	</p>
+
+	              	<div class="upload-notification">
+
+	                	<p class="bellow50">Make sure you’ve got Wi-Fi connection for best results</p>
+
+	                	<p class="above50">Your file is bigger than 50mb, we recommend connect your mobile device to your computer and upload from your computer for best results</p>
+	              	</div> -->
+
+	            </div>
+
+	            <button id="hiddenBtn" type="button" ng-click="runDropboxFn()" ng-show="1==0" class="ng-hide"></button>
+
+	        </div>
+
+	    </div>
+	</div>
+    <!-- /.video-upload -->
+
+    <div class="project-files">
+        <h3 class="project-files-header">
+            Project Files
+            <span class="project-files-header-info">
+        	 	<img src="AngularApp/images/video-project/info-icon.png" alt="Hover for more info." alt="Hover for more info." data-toggle="tooltip" data-placement="top" data-original-title="">
+            </span>
+            <div class="project-files-header-tooltip">
+    	 		<div class="project-header-tooltip-inner">
+    	 			Video and picture files that make up the video project. These are the assets the Video Editor will work with.
+    	 		</div>
+    	 	</div>
+           
+			<span class="header-buttons">
+				<button id="video-expandall" ng-click="collapseAll = false" ng-class="{ active: !collapseAll }">Expand All</button>
+				<button id="video-collapseall" ng-click="collapseAll = true" ng-class="{ active: collapseAll }">Collapse All</button>
+			</span>
+			<div class="clearfix"></div>
+        </h3>
+
+        <div class="video-download">
+            <a href="/api/v2/project/download-project-files/{{project_id}}?token={{auth_token}}">Download</a>
+        </div>
+
+            <!-- /.video-download -->
+
+        <div class="video-list-wrap">
+            <ol class="video-list">
+
+                <li class="single-video" ng-repeat="(video_key, video) in videos">
+                    <h5>
+                        <span class="icon-reorder">
+                            <img src="AngularApp/images/video-project/icon-reorder.png" alt="Icon-Reorder">
+                        </span>
+                        <span class="single-video-title">{{video.title}}</span>
+
+                        <span class="video-list-number">#{{video_key + 1}}</span>
+                    </h5>
+
+                    <section ng-if="!collapseAll">
+	                    <div class="col-sm-4 single-video-featuredimg">
+	                        <video width="300" max-height="200" controls="" class="" ng-if="video.video_type">
+	                            <source ng-src="{{video.video_src | trusted}}" type="video/mp4" err-src="/assets/images/project2.jpg">
+	                        </video>
+
+	                        <img ng-src="{{video.video_src | trusted}}" ng-if="!video.video_type" />
+
+	                        <div class="video-des-button-wrap">
+	                            <button class="add-notes-toggle" ng-click="showVideoNotes(video.id)">Add Notes</button>
+	                            <button class="project-delete-file" ng-click="deleteVideoFile(video.id, video_key)">Delete File</button>
+	                        </div>
+	                    </div>
+	                       
+	                    <div class="col-sm-8 single-video-description">
+							<span class="single-video-title ng-binding">
+								<span 
+									class="video-title" 
+									editable-text="video.title" 
+									e-form="textBtnForm" 
+									e-style="width: 100%;" 
+									onaftersave="editTitle(video.id, video.title)"
+								>{{video.title}}</span>
+	                      		<img 
+	                      			class="video-edit" 
+	                      			ng-click="textBtnForm.$show()" 
+	                      			ng-hide="textBtnForm.$visible" 
+	                      			src="AngularApp/images/video-project/icon-edit.png" 
+	                      			alt="edit" 
+	                      			popover-title="Edit Project File Name"
+	                      		/>
+	            			</span>
+
+	                        <div class="single-video-subtitle">
+	                            <label><i
+	                            	editable-textarea="video.descr" 
+									e-form="textAreaBtnForm" 
+									e-style="width: 100%;" 
+									onaftersave="editDescr(video.id, video.descr)"
+	                            >{{video.descr || 'some description...'}}</i></label>
+	                            <img 
+	                      			class="video-edit" 
+	                      			ng-click="textAreaBtnForm.$show()" 
+	                      			ng-hide="textAreaBtnForm.$visible" 
+	                      			src="AngularApp/images/video-project/icon-edit.png" 
+	                      			alt="edit" 
+	                      			popover-title="Edit File Decription"
+	                      		/>
+	                        </div>
+
+	                        <!-- <div class="video-director-editor">
+	                            <div class="video-dir">
+	                                <h5>Director's Gallery</h5>
+	                                <span></span>
+	                            </div>
+	                        </div> -->
+	                    </div>
+                    </section>
+                    <div class="clearfix"></div>
+                </li>
+            </ol>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+    <div class="project-files-buttons">
+        <button ng-click="submitProject()">Submit to video editor</button>
+    </div>
+
+</div>
+
+<div id="confirm-modal-notes" class="confirm-modal modal fade" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<i class="fa fa-group"></i>
+			</div>
+			<div class="modal-body">
+				<p class="p-14">
+				Make sure you have added enough information to your media files. You can create more detailed descriptions of what you want changed or made by clicking on ADD NOTES</p>
+				<br>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary confirm-submission" ng-click="submitProjectPhone()" aria-label="Close" data-dismiss="modal">
+					Submit
+				</button>
+				<button class="btn btn-primary confirm-submission" aria-label="Close" data-dismiss="modal">
+					Back
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="confirm-modal-submit" class="confirm-modal modal fade" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fa fa-group"></i>
+            </div>
+            <div class="modal-body">
+                <p class="bold">Congratulations on submitting your video project! We will process your information and
+                    find the best video editors for you to choose from.</p>
+                <br>
+                <p class="p-14">Please add your phone number including country code if you would like us to contact you
+                    via telephone otherwise click submit and we will email you within 48hrs.</p>
+                <form class="form-inline" id="form-submission" name="phone_form">
+                    <input 
+                    	type="text" 
+                    	class="form-control" 
+                    	name="phone" 
+                    	ng-model="phonesubmission" 
+                    	placeholder="+12340567000" 
+                    	ng-required="true" 
+                    	ng-pattern="phone_reg"
+                    	ng-class="{ 'not-valid': !phone_form.phone.$valid }"
+                    />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div>
+                    <button class="btn btn-primary confirm-submission" ng-click="submitProjectConfirm(phone_form.phone)">
+                        Confirm
+                    </button>
+                    <button class="btn btn-primary confirm-submission" aria-label="Close" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

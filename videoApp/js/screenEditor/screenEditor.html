@@ -1,0 +1,46 @@
+<!-- Modal -->
+<div class="modal fade screen-modal" id="myModal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div data-img="{{editedItem.img}}" id="screen-editor"></div>
+			</div>
+			<div class="modal-footer">
+				<div class="screen-text">
+					<textarea
+						ng-model="editedItem.descr"
+						placeholder="Type your audio notes here..."
+					>{{editedItem.descr}}</textarea>
+				</div>
+				<div class="screen-bar">
+					<div class="screen-left-bar">
+						<button
+							type="button"
+							class="btn screen-prev"
+							ng-click="onPrev()"
+							ng-disabled="editedItem.num == 1"
+						><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						</button>
+
+						<button
+							type="button"
+							class="btn screen-next"
+							ng-click="onNext()"
+							ng-disabled="editedItem.num == allItems.length"
+						><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						</button>
+
+						<div class="screen-info">
+							<span>{{editedItem.num}}/{{allItems.length}}</span>|<span>{{editedItem.title}}</span>
+						</div>
+					</div>
+					<div class="screen-right-bar">
+	        			<button type="button" class="btn screen-save" ng-if="!saveResume || !videoType" ng-click="onSave()">Save</button>
+	        			<button type="button" class="btn screen-save" ng-if="saveResume && videoType" ng-click="onSave()">Save and Resume Video</button>
+						<button type="button" class="btn screen-close" data-dismiss="modal">x</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

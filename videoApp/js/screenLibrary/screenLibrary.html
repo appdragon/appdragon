@@ -1,0 +1,42 @@
+<div class="screenshot-library col-md-4 col-sm-5">
+	<div class="screen-title">Screenshot Library</div>
+	<div class="screen-wrap">
+		<div class="screen-legend">
+			<ul>
+				<li>
+					<div class="legend-video"></div>
+					<div class="legend-text">Video Notes</div>
+				</li>
+				<li>
+					<div class="legend-audio"></div>
+					<div class="legend-text">Audio Notes</div>
+				</li>
+			</ul>
+		</div>
+		<div class="screen-items">
+			<div
+				class="screen-item col-md-6 col-sm-12 col-xs-6"
+				ng-repeat="(item_index,item) in timelineData"
+				ng-class="{active: currentTime == item.time}"
+				ng-click="select_screen($event, item, item_index)"
+				ng-dblclick="onEdit()"
+			>
+				<div class="screen-item-wrap">
+					<div class="screen-item-head">
+						<div class="screen-item-legend">
+							<div class="legend-video" ng-class="{hidden: !item.change_img}"></div>
+							<div class="legend-audio" ng-class="{hidden: !item.descr}"></div>
+						</div>
+						<div class="screen-time" ng-if="videoType">{{item.time | date:'mm:ss'}}</div>
+						<div class="screen-time" ng-if="!videoType"></div>
+					</div>
+					<div class="screen-img">
+						<img ng-src="{{item.thumb}}">
+					</div>
+					<div class="screen-name">{{item.title}}</div>
+				</div>
+			</div>
+		</div>
+		<screenlibrarycontrols></screenlibrarycontrols>
+	</div>
+</div>

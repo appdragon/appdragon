@@ -1,0 +1,17 @@
+<div class="video-player col-md-8 col-sm-7">
+	<video controls="" crossOrigin="anonymous" ng-show="videoType">
+		<!-- <source ng-src="{{currentVideo | trusted}}" type="video/mp4"> -->
+	</video>
+	<img ng-src="{{currentVideo | trusted}}" ng-show="!videoType" />
+
+	<button class="video-snap" ng-click="snapScreen()">
+		<div class="video-snap-icon"></div>
+		<div class="video-snap-text" ng-if="videoType">Video Snap</div>
+		<div class="video-snap-text" ng-if="!videoType">Add Notes</div>
+	</button>
+
+	<div class="video-player-note">
+		<p ng-if="videoType">Click VIDEO SNAP to take a screenshot, add your video and audio notes.</p>
+		<p ng-if="!videoType">Click ADD NOTE to take a screenshot, add your notes.</p>
+	</div>
+</div>

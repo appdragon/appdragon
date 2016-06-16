@@ -1,0 +1,28 @@
+<div class="popover_audio" style="display:inline-block; min-width: 260px;">
+	<div class="col-md-12">
+    	<label class="inline-label">
+			<span>Genre</span>
+		</label>
+		<div class="input-group">
+			<select 
+				ng-model="audio_genre.id"
+				ng-options="item.id as item.name for item in audioGen | filter: item.parent_id = null"
+			></select>
+		</div>
+    </div>
+    <div class="col-md-12">
+    	<label class="inline-label">
+			<span>Sub Genre</span>
+		</label>
+		<div class="input-group">
+			<select 
+				ng-model="audio_genre.sub_id"
+				ng-options="item.id as item.name for item in audioGen | filter: item.parent_id = audio_genre.id"
+			></select>
+		</div>
+    </div>
+
+	<button class="btn btn-link" ng-click="closeAudioPopover()">
+		<img src="AngularApp/images/video-project/okay.png">
+	</button>
+</div>
