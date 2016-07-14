@@ -1,13 +1,13 @@
 {
   "name": "videoapp",
   "version": "1.0.0",
-  "description": "",
+  "description": "videoApp",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "MIT",
+  "author": "Andrey Prihodko <aprihodko@entenso.com>",
+  "license": "ENTENSO public code",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-wiredep": "^2.0.0"

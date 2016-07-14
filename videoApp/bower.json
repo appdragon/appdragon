@@ -1,9 +1,9 @@
 {
   "name": "videoApp",
-  "description": "",
+  "description": "videoApp",
   "main": "",
   "moduleType": [],
-  "license": "MIT",
+  "license": "ENTENSO public code",
   "homepage": "",
   "ignore": [
     "**/.*",

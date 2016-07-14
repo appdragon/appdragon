@@ -1,0 +1,25 @@
+*** ENTENSO public code ***
+
+You are free to copy, distribute and transmit ENTENSO public code for non-commercial purposes (please see details below).
+
+*** Guidelines to distinguish Non-commercial and Commercial Use ***
+
+You may only use the ENTENSO public code under the terms of a relevant license agreement. The license agreement which applies to you depends on your use of the code, which can be summarised as follows:
+
+You are free to copy, distribute and transmit ENTENSO public code for non-commercial purposes. Non-commercial use is subject to the terms of our ENTENSO public code Non-Commercial License Agreement.
+
+Any use of ENTENSO public code for a commercial purpose is subject to and requires a special license. If you intend to use ENTENSO public codefor a commercial purpose, please contact info@entenso.com to arrange a License and Collaboration Agreement with us.
+Whether a particular use of the ENTENSO public code is "non-commercial" depends on the use, not the user, and to assist we have set out the notes below:
+
+*** Non-commercial Use ***
+
+We anticipate that non-commercial use will primarily involve students and teachers who may wish to use ENTENSO public code at home and in school or university for the purposes of their school or academic study and teaching, without intending to seek any commercial advantage or financial gain. This includes teachers in schools and universities where tuition fees are charged, so long as the use of ENTENSO public code is limited to personal or individual classroom teaching.
+ 
+*** Commercial Use ***
+
+We anticipate that commercial use will primarily involve web services where there is systematic or formal integration of ENTENSO public code and organizations who wish to use ENTENSO public code to support activities that are intended toward securing a commercial advantage or the generation of revenue or monetary compensation.
+
+*** Examples of commercial use might include ***
+
+Use of ENTENSO public code (or any related materials or resources) to develop software or service which will be sold in exchange for a fee or which will be used to gain a commercial advantage for the user;
+the provision of training or support services that use or reference ENTENSO public code (or any related materials or resources) in exchange for a fee;

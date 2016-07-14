@@ -1,3 +1,11 @@
+/* Copyright (C) 2016 Entenso - All Rights Reserved
+ * You may use, distribute and modify this code under the
+ * terms of the ENTENSO public code license.
+ *
+ * You should have received a copy of the ENTENSO public code license with
+ * this file. If not, please write to: aprihodko@entenso.com, or visit: http://entenso.com
+ */
+ 
 angular.module('appControlsModule', [
 	'appDialogsModule',
 	'apiServiceModule'
